@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework', # The REST API
     # Add this line!
     'users',
+    'piazza',
 ]
 
 MIDDLEWARE = [

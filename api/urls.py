@@ -15,6 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework.routers import DefaultRouter 
+from piazza.views import postViewSet, personViewSet, interactionViewSet
+
+
+router = DefaultRouter()
+router.register('post', postViewSet)
+router.register('person', personViewSet)
+router.register('interaction', interactionViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -22,4 +30,8 @@ urlpatterns = [
     path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
 
     path('authentication/', include('users.urls')),
+
+    path('v1/', include(router.urls)),
 ]
+
+
